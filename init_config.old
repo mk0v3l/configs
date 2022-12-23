@@ -3,19 +3,25 @@ sudo apt install zsh -y && chsh -s $(which zsh) && echo $SHELL
 sudo apt install git -y
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sudo apt install samba -y
-mkdir -p DD USB IPI .config/nvim/plugged .config/cordless
+mkdir -p DD USB IPI .config/nvim/plugged
 sudo apt install sshfs -y
 sudo apt install neovim -y
-cp .zshrc ~/; cp init.vim ~/.config/nvim/; cp .tmux.con ~/ 
+scp mkovel@mkpi.local:/home/mkovel/.zshrc .
+scp mkovel@mkpi.local:/home/mkovel/.config/nvim/init.vim .config/nvim/init.vim
+
+/* sshfs mkovel@192.168.1.25:/home/mkovel IPI */
 
 
+/* cp IPI/.zshrc . */
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone --recursive https://github.com/coltondick/zsh-dircolors-nord.git $ZSH_CUSTOM/plugins/zsh-dircolors-nord
 
+/* cp IPI/.config/nvim/init.vim .config/nvim/init.vim */
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+sudo apt install nodejs -y
 sudo apt install npm -y
 npm cache clean -f
 sudo npm install -g n
@@ -48,6 +54,6 @@ git config --global user.name "mk0v3l"
 sudo apt install tmux -y
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/clone/path
-cp -r cordless ~/.config/
+
 
 
