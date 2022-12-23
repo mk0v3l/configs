@@ -131,15 +131,12 @@ alias nv="/snap/bin/nvim"
 alias DirectBackup_="sudo dd if=/dev/mmcblk0 of=/dev/sda bs=4096 status=progress conv=notrunc,noerror"
 
 # alias ddmount="sshfs -o allow_other mkovel@192.168.1.61:/home/mkovel/DD DD"
-# alias ddmountext="sshfs -o allow_other mkovel@109.133.251.234:/home/mkovel/DD DD"
 # alias ddmountext="sudo mount /dev/sda1 DD"
 alias hpmount="sshfs -o allow_other mkovel@192.168.1.61:/home/mkovel /home/mkovel/HP"
-# alias hpmountext="sshfs -o allow_other mkovel@109.133.251.234:/ /home/mkovel/remote_hp"
 alias ipimount="sshfs -o allow_other mkovel@192.168.1.25:/home/mkovel ~/IPI" 
 
 alias sshipi="ssh mkovel@192.168.1.77"
 alias sshp="ssh mkovel@192.168.1.61"
-alias sshpext="ssh mkove@109.133.251.234"
 alias usbmount="sudo mount -o umask=0 /dev/sdb1 /home/mkovel/USB"
 alias ddmount="sudo mount -o umask=0 /dev/sda1 /home/mkovel/DD"
 # var=/file.torrent 
