@@ -6,7 +6,7 @@ sudo apt install samba -y
 mkdir -p DD USB IPI .config/nvim/plugged .config/cordless
 sudo apt install sshfs -y
 sudo apt install neovim -y
-cp .zshrc ~/; cp init.vim ~/.config/nvim/; cp .tmux.con ~/ 
+cp zsh/.zshrc ~/; cp nvim/init.vim ~/.config/nvim/; cp tmux/.tmux.conf ~/; cp cordless/* .config/cordless/ 
 
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
