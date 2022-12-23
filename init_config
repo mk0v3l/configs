@@ -1,0 +1,57 @@
+sudo apt update; sudo apt upgrade
+sudo apt install zsh -y && chsh -s $(which zsh) && echo $SHELL 
+sudo apt install git -y
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt install samba -y
+mkdir -p DD USB IPI .config/nvim/plugged
+sudo apt install sshfs -y
+sudo apt install neovim -y
+scp mkovel@mkpi.local:/home/mkovel/.zshrc .
+scp mkovel@mkpi.local:/home/mkovel/.config/nvim/init.vim .config/nvim/init.vim
+
+/* sshfs mkovel@192.168.1.25:/home/mkovel IPI */
+
+
+/* cp IPI/.zshrc . */
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone --recursive https://github.com/coltondick/zsh-dircolors-nord.git $ZSH_CUSTOM/plugins/zsh-dircolors-nord
+
+/* cp IPI/.config/nvim/init.vim .config/nvim/init.vim */
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+sudo apt install nodejs -y
+sudo apt install npm -y
+npm cache clean -f
+sudo npm install -g n
+sudo n stable
+sudo npm install -g yarn
+nvim +PlugInstall
+nvim -c CocInstall coc-python coc-clangd coc-sh
+cd .config/nvim/plugged/coc.nvim && yarn install && yarn build
+nvim -c 'CocInstall -sync coc-json coc-python coc-clangd coc-sh|q'
+sudo apt install python3-pip -y
+pip3 install jedi
+sudo apt-get install clangd-11
+sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-11 100
+sudo git clone --recursive https://github.com/coltondick/zsh-dircolors-nord.git $ZSH_CUSTOM/plugins/zsh-dircolors-nord
+sudo git clone https://github.com/fxbrit/nord-extended $ZSH/themes/nord-extended
+sudo apt install bpytop
+sudo rm -rf /usr/local/go 
+wget https://dl.google.com/go/go1.19.4.linux-arm64.tar.gz 
+sudo tar -C /usr/local -xzf go1.19.4.linux-arm64.tar.gz && export PATH=$PATH:/usr/local/go/bin 
+git clone https://github.com/Bios-Marcel/cordless.git && cd cordless && go build
+type -p curl >/dev/null || sudo apt install curl -y
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
+gh auth login
+git config --global user.email "mickaelkovel@hotmail.com"
+git config --global user.name "mk0v3l"
+
+
+
+

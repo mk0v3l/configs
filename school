@@ -1,0 +1,3 @@
+sudo apt install libfltk1.3-dev -y
+
+
