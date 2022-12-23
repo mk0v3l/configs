@@ -51,7 +51,9 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 gh auth login
 git config --global user.email "mickaelkovel@hotmail.com"
 git config --global user.name "mk0v3l"
-
+sudo apt install tmux -y
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tmux-resurrect ~/clone/path
 
 
 
