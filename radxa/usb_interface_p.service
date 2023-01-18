@@ -1,0 +1,9 @@
+[Unit]
+Description=Enable USB
+
+[Service]
+ExecStart=/bin/sh -c "echo host > /sys/devices/platform/fe8a0000.usb2-phy/otg_mode"
+
+
+[Install]
+WantedBy=multi-user.target
