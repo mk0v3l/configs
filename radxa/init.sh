@@ -12,6 +12,7 @@ systemctl enable usb_interface_p.service
 #sudo apt install kde-plasma-desktop
 
 sudo apt install tightvncserver
+sudo vim ~/.vnc/xstartup
 
 sudo apt install -y libfltk1.3-dev
 sudo apt install -y g++-10
