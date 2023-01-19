@@ -8,7 +8,8 @@ systemctl enable usb_interface_p.service
 
 #sudo apt install ubuntu-mate-desktop
 #sudo apt install -y xfce4
-sudo apt install plasma-desktop 
+
+sudo apt install kde-plasma-desktop
 
 sudo apt install -y libfltk1.3-dev
 sudo apt install -y g++-10
