@@ -180,7 +180,7 @@ function gitall() {
     local msg=""
     for i in "${@:1}"; do
         if [[ $i == "-m" ]]; then
-            msg="${@: $(( $i + 1 ))}"
+            msg=$(printf '%s ' "${@: $(( $i + 1 ))}") && msg=${msg#*-m }
             break
         fi
         git add $i
