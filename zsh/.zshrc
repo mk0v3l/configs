@@ -147,6 +147,7 @@ alias sshpext="ssh mkove@109.133.251.234"
 alias usbmount="sudo mount -o umask=0 /dev/sdb1 /home/mkovel/USB"
 # alias ddmount="sudo mount -o umask=0 /dev/sda1 /home/mkovel/DD"
 alias nvzsh="nv ~/.zshrc; reload"
+alias nvinit="nv ~/.config/nvim/init.vim"
 alias reload_torrent="scp /home/mkovel/Downloads/*.torrent mkovel@mkpi.local:/home/mkovel/.ratio_master/torrents"
 alias reload=". ~/.zshrc"
 alias duckduck="w3m https://duckduckgo.com"
@@ -158,10 +159,7 @@ function ga() {
 	for i in "${@:1}"; do
 		git add $i
 	done
-	
-	# git add $1
 	gs
-	# git status
 }
 function gc() {
 	txt=$1
@@ -173,8 +171,6 @@ function gc() {
 }
 alias gp="git push"
 
-# gitall() : ga /src/* test/* ... && gc "add src" && gp
-# gitall src/1 src/2 test/1 -m long comment 
 function gitall() {
 
     local msg=""

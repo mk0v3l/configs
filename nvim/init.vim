@@ -48,7 +48,7 @@ Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 " Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 " " Plug 'https://github.com/glepnir/dashboard-nvim'
 " Plug 'junegunn/fzf'
-" " Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
@@ -62,7 +62,7 @@ Plug 'terryma/vim-multiple-cursors'
 " Plug 'https://github.com/preservim/tagbar'
 " Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-" Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 " Plug 'reedes/vim-wheel'
 Plug 'https://github.com/github/copilot.vim.git'
 " Plug 'JASONews/glow-hover'
@@ -106,7 +106,8 @@ imap <C-Right> <Esc><C-w>l
 imap <C-Up>  <Esc><C-w>k
 imap <C-Down>  <Esc><C-w>j
 
-map <C-l> :source %<CR>
+" map <C-l> :source %<CR>
+map <C-l> :source ~/.config/nvim/init.vim<CR>
 map <Leader>m :bnext<CR>
 map <Leader>l :bprevious<CR>
 map <Leader>; i
