@@ -155,7 +155,11 @@ alias cleanVim="rm ~/.local/state/nvim/swap/*"
 alias cloneGenie="git clone ssh://git@gitlab.ulb.be:30422/ulb-infof307/2023-groupe-3.git"
 alias gs="git status"
 function ga() {
-	git add $1
+	for i in "${@:1}"; do
+		git add $i
+	done
+	
+	# git add $1
 	gs
 	# git status
 }
@@ -168,6 +172,64 @@ function gc() {
 	gs
 }
 alias gp="git push"
+
+# gitall() : ga /src/* test/* ... && gc "add src" && gp
+# gitall src/1 src/2 test/1 -m long comment 
+function gitall() {
+
+    local msg=""
+    for i in "${@:1}"; do
+        if [[ $i == "-m" ]]; then
+            msg="${@: $(( $i + 1 ))}"
+            break
+        fi
+        git add $i
+    done
+    git commit -m "$msg"
+    # git push
+
+
+
+	# for i in "${@:1}"; do
+	# 	if [[ $i == "-m" ]]; then
+	# 		break
+	# 	fi
+	# 	git add $i
+
+	# done
+	# txt=$i
+	# for j in "${@:i}"; do
+	# 	txt="$txt $j"
+	# done
+	# git commit -m "$txt"
+
+
+	# files = $1
+	# current = 1
+	# for i in "${@:current}"; do
+	# 	current = current + 1
+	# 	if [[ $i == "-m" ]]; then
+	# 		break
+	# 	fi
+	# 	files="$files $i"
+	# done
+	# comments = $current
+	# for i in "${@:current}"; do
+	# 	comments="$comments $i"
+	# done
+	# ga $files
+	# gs
+	# gc $comments
+	# gs
+
+
+
+	
+	# while &i doesnt contain -m
+	
+}
+
+
 
 # var=/file.torrent 
 # transmission-edit  $var -d $(transmission-show $var |egrep -o 'https?://[^ ]+')
