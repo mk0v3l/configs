@@ -186,47 +186,10 @@ function gitall() {
         git add $i
     done
     git commit -m "$msg"
-    # git push
-
-
-
-	# for i in "${@:1}"; do
-	# 	if [[ $i == "-m" ]]; then
-	# 		break
-	# 	fi
-	# 	git add $i
-
-	# done
-	# txt=$i
-	# for j in "${@:i}"; do
-	# 	txt="$txt $j"
-	# done
-	# git commit -m "$txt"
-
-
-	# files = $1
-	# current = 1
-	# for i in "${@:current}"; do
-	# 	current = current + 1
-	# 	if [[ $i == "-m" ]]; then
-	# 		break
-	# 	fi
-	# 	files="$files $i"
-	# done
-	# comments = $current
-	# for i in "${@:current}"; do
-	# 	comments="$comments $i"
-	# done
-	# ga $files
-	# gs
-	# gc $comments
-	# gs
-
-
-
-	
-	# while &i doesnt contain -m
-	
+}
+function temp() {
+	cpu=$(</sys/class/thermal/thermal_zone0/temp) 
+	echo "$((cpu/1000))°C"
 }
 
 
