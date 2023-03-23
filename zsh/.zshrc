@@ -160,8 +160,12 @@ function ga() {
 	# git status
 }
 function gc() {
-	git commit -m "$1";
-	git status
+	txt=$1
+	for i in "${@:2}"; do
+		txt="$txt $i"
+	done
+	git commit -m "$txt"
+	gs
 }
 alias gp="git push"
 
