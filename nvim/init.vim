@@ -59,43 +59,68 @@ set clipboard+=unnamedplus
 
 
 " KEY MAPPING
-
 let mapleader = ';' " Leader Key
 
 " Default Key Mapping
-set background=dark
-map m <Nop>
+
+" Disable original mapping for m
+map m <Nop> 
+
+" Another way to go in insert mode
+map <Leader>; i
+
+
+" Directions
 noremap k h
 noremap l j
 noremap o k
 nnoremap m l
+
+" Begin/End of l ine
 noremap j 0
-noremap h @
-noremap t o
-noremap T O
 map ù $
 
+" Fast move
+noremap <C-k> b
+" noremap <S-h> b
+noremap <C-l> 5j
+" noremap <S-j> 5j
+" noremap <S-k> 5k
+noremap <C-m> w 
+" noremap <C-k> 5k
+" noremap <S-L> w
+noremap <C-o> 5k
+" noremap <C-L> w
+map <S-Up> 5k
+map <S-Down> 5j
+" map <C-Right> w
+" map <C-Left> b
+map <S-Right> w
+map <S-Left> b
+
+
+
+" Recall saved commands (from recording)
+noremap h @
+
+" Insert line below/above
+noremap t o
+noremap T O
+
+" Switch window
 nnoremap <S-o>  <C-w>k
 nnoremap <S-k>  <C-w>h
 nnoremap <S-l>  <C-w>j
 nnoremap <S-m> <C-w>l
 
+" Reload Vim
 map <C-y> :source ~/.config/nvim/init.vim<CR>
+
+" Switch next/previous buffer
 map <Leader>m :bnext<CR>
 map <Leader>l :bprevious<CR>
-map <Leader>; i
 
-" tmap <C-q> <C-\><C-n>:q<CR>
-tmap <C-s> <C-\><C-n>
-tmap <C-q> <C-\><C-n>:q<CR>
-tmap <Leader>, <C-\><C-n>:q<CR>
-tmap <Leader>: <C-\><C-n>:q<CR>
-tmap <Leader>; <C-\><C-n>
-tmap <C-Left>  <C-\><C-n><C-w>h
-tmap <C-Right>  <C-\><C-n><C-w>l
-tmap <C-Up>  <C-\><C-n><C-w>k
-tmap <C-Down>  <C-\><C-n><C-w>j
-tmap <Esc> <C-\><C-n>map <C-s> :w<CR>
+" Binds to Save and Quit
 map <C-s> :w<CR>
 map <C-q> :q<CR>
 map <S-q> :q!<CR>
@@ -105,29 +130,12 @@ map <Leader>s :w! /home/mkovel/tmp//%:t<CR>
 imap <C-s> <Esc>:w<CR>
 imap <C-q> <Esc>:q<CR>
 imap <Leader>s <Esc> :w! /home/mkovel/tmp//%:t<CR>
-" noremap <S-h> b
-noremap <C-k> b
-" noremap <S-j> 5j
-noremap <C-l> 5j
-" noremap <S-k> 5k
-" noremap <C-k> 5k
-noremap <C-m> w 
-" noremap <S-L> w
-" noremap <C-L> w
-noremap <C-o> 5k
-
 map <Leader>v :vs 
 map <Leader>h :sp 
 nmap <C-v> :vs N<CR> 
 
-map <S-Up> 5k
-map <S-Down> 5j
-" map <C-Right> w
-" map <C-Left> b
-map <S-Right> w
-map <S-Left> b
-
 " Color Scheme
+set background=dark
 colorscheme nord 
 
 " Bookmark
@@ -193,6 +201,17 @@ map <Leader>, :sp term://zsh<CR>i<CR>
 map <Leader>: :vs term://zsh<CR>i<CR>
 imap <Leader>, <Esc>:sp term://zsh<CR>i<CR>
 imap <Leader>: <Esc>:vs term://zsh<CR>i<CR>
+" tmap <C-q> <C-\><C-n>:q<CR>
+tmap <C-s> <C-\><C-n>
+tmap <C-q> <C-\><C-n>:q<CR>
+tmap <Leader>, <C-\><C-n>:q<CR>
+tmap <Leader>: <C-\><C-n>:q<CR>
+tmap <Leader>; <C-\><C-n>
+tmap <C-Left>  <C-\><C-n><C-w>h
+tmap <C-Right>  <C-\><C-n><C-w>l
+tmap <C-Up>  <C-\><C-n><C-w>k
+tmap <C-Down>  <C-\><C-n><C-w>j
+tmap <Esc> <C-\><C-n>map <C-s> :w<CR>
 
 " NERDTree
 map <C-d> :NERDTreeToggle <CR>
