@@ -1,73 +1,4 @@
-let mapleader = ';'
-let g:bookmark_sign = '♥'
-let g:bookmark_no_default_key_mappings = 1
-map <Leader>b :BookmarkToggle<CR>
-" let mapleader = "\<Space>"
-" nnoremap <SPACE> <Nop>
-" unmap <k>
-set t_Co=256
-" colorscheme solarized 
-set background=dark
-set clipboard+=unnamedplus
-" unbind m
-map m <Nop>
-noremap k h
-noremap l j
-noremap o k
-nnoremap m l
-noremap j 0
-noremap h @
-noremap t o
-noremap T O
-map ù $
-
-
-
-nnoremap <silent> <leader> :WhichKeyVisual ';'<CR>
-set timeoutlen=5
-nnoremap <C-u> :m .-2<CR>==
-nnoremap <C-j> :m .+1<CR>==
-" vmap <Leader>u :m .-2<CR>==
-" vmap <Leader>j :m .+1<CR>==
-" map <Leader>u :m .-2<CR>==
-" map <Leader>j :m .+1<CR>==
-" autocmd BufEnter * lcd %:p:h
-" Default mapping
-" let g:multi_cursor_use_default_mapping=0
-" let g:multi_cursor_start_word_key      = '<C-n>'
-" let g:multi_cursor_start_key           = 'g<C-n>'
-" let g:multi_cursor_skip_key            = '<C-x>'
-" let g:multi_cursor_select_all_word_key = '<A-n>'
-
-" let g:multi_cursor_quit_key            = '<Esc>'
-" let g:multi_cursor_prev_key            = '<C-p>'
-" let g:multi_cursor_next_key            = '<C-n>'
-" let g:multi_cursor_select_all_key      = 'g<A-n>'
-"
-let NERDTreeShowHidden=1
-let g:coc_disable_startup_warning = 1
-" let g:doge_doc_standard_cpp
-
-" g:doge_mapping :<C-y>
-nmap ,d <Plug>(DocGen)
-nmap ,D <Plug>(DocGen!)
-nmap ,x <Plug>(DocBox)
-nmap ,X <Plug>(DocBox!)
-
-set number
-set relativenumber
-syntax on
-set tabstop=4
-set backspace=indent,eol,start
-set incsearch
-set wildmenu
-set wildmode=list:longest
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-set mouse=a
-set autoindent
-set smarttab
-set softtabstop=4
-set shiftwidth=4
+"  Plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'https://github.com/Mofiqul/dracula.nvim'
 Plug 'https://github.com/mg979/docgen.vim'
@@ -97,23 +28,213 @@ Plug 'liuchengxu/vim-which-key'
 set encoding=UTF-8
 call plug#end()
 
-map <Leader>t :term<CR>i
+" Default settings
+set number
+set relativenumber
+syntax on
+set tabstop=4
+set backspace=indent,eol,start
+set incsearch
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+set mouse=a
+set autoindent
+set smarttab
+set softtabstop=4
+set shiftwidth=4
+set splitbelow splitright
+autocmd InsertEnter,InsertLeave * set cul!
+set nowrap
+set showcmd
+let &t_SI = "\e[6 q]"
+set clipboard+=unnamedplus 
+" let mapleader = "\<Space>"
+" nnoremap <SPACE> <Nop>
+" unmap <k>
+" set t_Co=256
+" colorscheme solarized 
+
+
+
+
+" KEY MAPPING
+
+let mapleader = ';' " Leader Key
+
+" Default Key Mapping
+set background=dark
+map m <Nop>
+noremap k h
+noremap l j
+noremap o k
+nnoremap m l
+noremap j 0
+noremap h @
+noremap t o
+noremap T O
+map ù $
+
+nnoremap <S-o>  <C-w>k
+nnoremap <S-k>  <C-w>h
+nnoremap <S-l>  <C-w>j
+nnoremap <S-m> <C-w>l
+
+map <C-y> :source ~/.config/nvim/init.vim<CR>
+map <Leader>m :bnext<CR>
+map <Leader>l :bprevious<CR>
+map <Leader>; i
+
+" tmap <C-q> <C-\><C-n>:q<CR>
+tmap <C-s> <C-\><C-n>
+tmap <C-q> <C-\><C-n>:q<CR>
+tmap <Leader>, <C-\><C-n>:q<CR>
+tmap <Leader>: <C-\><C-n>:q<CR>
+tmap <Leader>; <C-\><C-n>
+tmap <C-Left>  <C-\><C-n><C-w>h
+tmap <C-Right>  <C-\><C-n><C-w>l
+tmap <C-Up>  <C-\><C-n><C-w>k
+tmap <C-Down>  <C-\><C-n><C-w>j
+tmap <Esc> <C-\><C-n>map <C-s> :w<CR>
+map <C-s> :w<CR>
+map <C-q> :q<CR>
+map <S-q> :q!<CR>
+map <C-a-Q> :q!<CR>
+map <C-S-Q> :q!<CR>
+map <Leader>s :w! /home/mkovel/tmp//%:t<CR>
+imap <C-s> <Esc>:w<CR>
+imap <C-q> <Esc>:q<CR>
+imap <Leader>s <Esc> :w! /home/mkovel/tmp//%:t<CR>
+" noremap <S-h> b
+noremap <C-k> b
+" noremap <S-j> 5j
+noremap <C-l> 5j
+" noremap <S-k> 5k
+" noremap <C-k> 5k
+noremap <C-m> w 
+" noremap <S-L> w
+" noremap <C-L> w
+noremap <C-o> 5k
+
+map <Leader>v :vs 
+map <Leader>h :sp 
+nmap <C-v> :vs N<CR> 
+
+map <S-Up> 5k
+map <S-Down> 5j
+" map <C-Right> w
+" map <C-Left> b
+map <S-Right> w
+map <S-Left> b
+
+" Color Scheme
+colorscheme nord 
+
+" Bookmark
+let g:bookmark_sign = '♥'
+let g:bookmark_no_default_key_mappings = 1
+map <Leader>b :BookmarkToggle<CR>
+
+" WhichKey
+nnoremap <silent> <leader> :WhichKeyVisual ';'<CR>
+set timeoutlen=5
+
+" Move lines
+nnoremap <C-u> :m .-2<CR>==
+nnoremap <C-j> :m .+1<CR>==
+
+" vmap <Leader>u :m .-2<CR>==
+" vmap <Leader>j :m .+1<CR>==
+" map <Leader>u :m .-2<CR>==
+" map <Leader>j :m .+1<CR>==
+" autocmd BufEnter * lcd %:p:h
+" Default mapping
+" let g:multi_cursor_use_default_mapping=0
+" let g:multi_cursor_start_word_key      = '<C-n>'
+" let g:multi_cursor_start_key           = 'g<C-n>'
+" let g:multi_cursor_skip_key            = '<C-x>'
+" let g:multi_cursor_select_all_word_key = '<A-n>'
+
+" let g:multi_cursor_quit_key            = '<Esc>'
+" let g:multi_cursor_prev_key            = '<C-p>'
+" let g:multi_cursor_next_key            = '<C-n>'
+" let g:multi_cursor_select_all_key      = 'g<A-n>'
+"
+" let g:doge_doc_standard_cpp
+
+
+" DocGen
+" g:doge_mapping :<C-y>
+nmap ,d <Plug>(DocGen)
+nmap ,D <Plug>(DocGen!)
+nmap ,x <Plug>(DocBox)
+nmap ,X <Plug>(DocBox!)
+
 " map <Leader>t :term:<CR>i<CR>
 let g:wheel#map#mouse = -1  
 
-
+" airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
-
-
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_theme = 'onedark'
 set showtabline=2
+
+" Terminal
+map <Leader>t :term<CR>i
+imap <C-t> <Esc>:sp term://zsh<CR>i<CR>
+map <C-t> :sp term://zsh<CR>i<CR>
+map <Leader>, :sp term://zsh<CR>i<CR>
+map <Leader>: :vs term://zsh<CR>i<CR>
+imap <Leader>, <Esc>:sp term://zsh<CR>i<CR>
+imap <Leader>: <Esc>:vs term://zsh<CR>i<CR>
+
+" NERDTree
+map <C-d> :NERDTreeToggle <CR>
+map <Leader>d :NERDTreeToggle <CR>
+map <Leader>f :NERDTreeFocus <CR>
+" let NERDTreeMapJumpNextSibling='l'
+let NERDTreeMapJumpPrevSibling='o'
+" let NERDTreeMapOpenSplit='s'
+let NERDTreeMapActivateNode='m'
+let NERDTreeDirArrowsExpandable='l'
+let NERDTreeShowHidden=1
+
+
+
+
+" Telescope
+nnoremap <C-f> :Telescope find_files cwd=/home/mkovel hidden=true<CR>
+
+" Coc
+let g:coc_disable_startup_warning = 1
+" S-Tab for autocomplete coc
+inoremap <expr> <S-Tab> pumvisible() ? coc#_select_confirm() : "<S-Tab>"
+
+" goto def/ref
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Commentary
+imap <C-a> <Esc>:Commentary<CR>i 
+map <C-a> :Commentary<CR>
+
+" Tagbar
+nmap <F1> :TagbarToggle<CR>
+
+
+
+
+
+
+
 
 " set Copilot enable
 
@@ -123,7 +244,6 @@ set showtabline=2
 " map <C-Left>  :bprevious<CR>
 " map <C-Right> :bnext<CR>
 
-set splitbelow splitright
 
 " map <C-Left>  <C-w>h
 " map <C-h>  <C-w>h
@@ -132,12 +252,6 @@ set splitbelow splitright
 
 
 
-
-
-nnoremap <S-o>  <C-w>k
-nnoremap <S-k>  <C-w>h
-nnoremap <S-l>  <C-w>j
-nnoremap <S-m> <C-w>l
 
 " map <C-Right> <C-w>l
 " map <C-l> <C-w>l
@@ -172,48 +286,18 @@ nnoremap <S-m> <C-w>l
 " imap <C-l>  <Esc><C-w>j
 
 " map <C-l> :source %<CR>
-map <C-y> :source ~/.config/nvim/init.vim<CR>
-map <Leader>m :bnext<CR>
-map <Leader>l :bprevious<CR>
-map <Leader>; i
-
-imap <C-t> <Esc>:sp term://zsh<CR>i<CR>
-" tmap <C-q> <C-\><C-n>:q<CR>
-tmap <C-s> <C-\><C-n>
-tmap <C-q> <C-\><C-n>:q<CR>
-tmap <Leader>, <C-\><C-n>:q<CR>
-tmap <Leader>: <C-\><C-n>:q<CR>
-tmap <Leader>; <C-\><C-n>
-tmap <C-Left>  <C-\><C-n><C-w>h
-tmap <C-Right>  <C-\><C-n><C-w>l
-tmap <C-Up>  <C-\><C-n><C-w>k
-tmap <C-Down>  <C-\><C-n><C-w>j
-tmap <Esc> <C-\><C-n>
 " tmap <C-q> <C-\><C-n> :bprevious <CR> :bnext<CR>
 " tmap <C-q> <C-\><C-n> :bprevious <CR> :bnext<CR>
 " unmap <C-t>
-map <C-t> :sp term://zsh<CR>i<CR>
-map <Leader>, :sp term://zsh<CR>i<CR>
-map <Leader>: :vs term://zsh<CR>i<CR>
+
 " map <Leader>q :set splitabove<CR> :sp term://zsh<CR>i<CR>:set splitbelow
 " map <Leader>s :vs term://zsh<CR>i<CR>
 " map <C-Left>  gT
 " map <C-Right> gt
 
-imap <Leader>, <Esc>:sp term://zsh<CR>i<CR>
-imap <Leader>: <Esc>:vs term://zsh<CR>i<CR>
 
 " k,e kd,dsf df,sdf,;::;;; f sz
 
-map <C-s> :w<CR>
-map <C-q> :q<CR>
-map <S-q> :q!<CR>
-map <C-a-Q> :q!<CR>
-map <C-S-Q> :q!<CR>
-map <Leader>s :w! /home/mkovel/tmp//%:t<CR>
-imap <C-s> <Esc>:w<CR>
-imap <C-q> <Esc>:q<CR>
-imap <Leader>s <Esc> :w! /home/mkovel/tmp//%:t<CR>
 " nmap <leader>Right :bprevious<CR>
 " nmap <leader>Left   :bnext<CR>
 " nnoremap <SPACE-C> :bprevious<CR>
@@ -226,51 +310,14 @@ imap <Leader>s <Esc> :w! /home/mkovel/tmp//%:t<CR>
 " nnoremap <S-t> :TerminalVSplit zsh<CR>
 
 
-nnoremap <C-f> :Telescope find_files cwd=/home/mkovel hidden=true<CR>
 " nnoremap <C-f> :NERDTreeFocus<CR>
 " nnoremap <C-d> :NERDTreeToggle<CR>
-map <C-d> :NERDTreeToggle <CR>
-map <Leader>d :NERDTreeToggle <CR>
-map <Leader>f :NERDTreeFocus <CR>
-" let NERDTreeMapJumpNextSibling='l'
-let NERDTreeMapJumpPrevSibling='o'
-" let NERDTreeMapOpenSplit='s'
-let NERDTreeMapActivateNode='m'
-let NERDTreeDirArrowsExpandable='l'
-colorscheme nord 
+
 " colorscheme dracula
 
 
-
-let &t_SI = "\e[6 q]"
-
-autocmd InsertEnter,InsertLeave * set cul!
-set nowrap
-set showcmd
-
-" noremap <S-h> b
-noremap <C-k> b
-" noremap <S-j> 5j
-noremap <C-l> 5j
-" noremap <S-k> 5k
-" noremap <C-k> 5k
-noremap <C-m> w 
-" noremap <S-L> w
-" noremap <C-L> w
-noremap <C-o> 5k
-
-map <Leader>v :vs 
-map <Leader>h :sp 
-
-map <S-Up> 5k
-map <S-Down> 5j
-" map <C-Right> w
-" map <C-Left> b
-map <S-Right> w
-map <S-Left> b
 " inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 " nnoremap <esc> :noh<return><esc>
-inoremap <expr> <S-Tab> pumvisible() ? coc#_select_confirm() : "<S-Tab>"
 
 " move lines
 
@@ -283,11 +330,6 @@ inoremap <expr> <S-Tab> pumvisible() ? coc#_select_confirm() : "<S-Tab>"
 " inoremap <A-Up> <Esc>: m-2<CR>
 " inoremap <A-Down> <Esc> :m+<CR>
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
 
 " keyset ("n", "gd", "<Plug>(coc-definition)", {silent = true})
 " keyset ("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
@@ -296,13 +338,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " xnoremap <A-Up> :m-2<CR>gv=gv
 " xnoremap <A-Down> :m'>+<CR>gv=gv
-
-imap <C-a> <Esc>:Commentary<CR>i
-map <C-a> :Commentary<CR>
-nmap <F1> :TagbarToggle<CR>
-
 " nmap <C-h> :sp temp<CR> 
-nmap <C-v> :vs N<CR> 
 " inoremap <C-a> <Esc> :Commentary<CR>
 " vnoremap <C-a> :Commentary<CR> 
 
