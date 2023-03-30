@@ -1,10 +1,36 @@
-" nnoremap <SPACE> <Nop>
-" let mapleader = "\<Space>"
 let mapleader = ';'
-nnoremap <silent> <leader> :WhichKey ';'<CR>
-set timeoutlen=500
-nnoremap <S-p> :m .-2<CR>==
-nnoremap <S-m> :m .+1<CR>==
+let g:bookmark_sign = '♥'
+let g:bookmark_no_default_key_mappings = 1
+map <Leader>b :BookmarkToggle<CR>
+" let mapleader = "\<Space>"
+" nnoremap <SPACE> <Nop>
+" unmap <k>
+set t_Co=256
+" colorscheme solarized 
+set background=dark
+set clipboard+=unnamedplus
+" unbind m
+map m <Nop>
+noremap k h
+noremap l j
+noremap o k
+nnoremap m l
+noremap j 0
+noremap h @
+noremap t o
+noremap T O
+map ù $
+
+
+
+nnoremap <silent> <leader> :WhichKeyVisual ';'<CR>
+set timeoutlen=5
+nnoremap <C-u> :m .-2<CR>==
+nnoremap <C-j> :m .+1<CR>==
+" vmap <Leader>u :m .-2<CR>==
+" vmap <Leader>j :m .+1<CR>==
+" map <Leader>u :m .-2<CR>==
+" map <Leader>j :m .+1<CR>==
 " autocmd BufEnter * lcd %:p:h
 " Default mapping
 " let g:multi_cursor_use_default_mapping=0
@@ -43,7 +69,8 @@ set smarttab
 set softtabstop=4
 set shiftwidth=4
 call plug#begin('~/.config/nvim/plugged')
-" Plug 'https://github.com/mg979/docgen.vim'
+Plug 'https://github.com/Mofiqul/dracula.nvim'
+Plug 'https://github.com/mg979/docgen.vim'
 Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 " Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 " " Plug 'https://github.com/glepnir/dashboard-nvim'
@@ -52,7 +79,7 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
-" Plug 'rbgrouleff/bclose.vim'
+Plug 'rbgrouleff/bclose.vim'
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/tpope/vim-commentary'
@@ -70,6 +97,8 @@ Plug 'liuchengxu/vim-which-key'
 set encoding=UTF-8
 call plug#end()
 
+map <Leader>t :term<CR>i
+" map <Leader>t :term:<CR>i<CR>
 let g:wheel#map#mouse = -1  
 
 
@@ -96,18 +125,54 @@ set showtabline=2
 
 set splitbelow splitright
 
-map <C-Left>  <C-w>h
-map <C-Right> <C-w>l
-map <C-Up>  <C-w>k
-map <C-Down>  <C-w>j
+" map <C-Left>  <C-w>h
+" map <C-h>  <C-w>h
+" map <S-h>  <C-w>h
+"
 
-imap <C-Left> <Esc> <C-w>h
-imap <C-Right> <Esc><C-w>l
-imap <C-Up>  <Esc><C-w>k
-imap <C-Down>  <Esc><C-w>j
+
+
+
+
+nnoremap <S-o>  <C-w>k
+nnoremap <S-k>  <C-w>h
+nnoremap <S-l>  <C-w>j
+nnoremap <S-m> <C-w>l
+
+" map <C-Right> <C-w>l
+" map <C-l> <C-w>l
+" map <S-l> <C-w>l
+" map <S-k> <C-w>l
+
+" map <C-Up>  <C-w>k
+" map <C-k>  <C-w>k
+" map <S-k>  <C-w>k
+
+" map <C-Down>  <C-w>j
+" map <C-j>  0
+" map <C-ù>  $
+" map <S-j>  <C-w>j
+
+
+" imap <C-Left> <Esc> <C-w>h
+" imap <C-h> <Esc> <C-w>h
+" imap <C-k> <Esc> <C-w>h
+
+" imap <C-Right> <Esc><C-w>l
+" imap <C-l> <Esc><C-w>l
+" imap <C-m> <Esc><C-w>l
+
+" imap <C-Up>  <Esc><C-w>k
+" imap <C-k>  <Esc><C-w>k
+" imap <C-k>  <Esc><C-w>k
+" imap <C-o>  <Esc><C-w>k
+
+" imap <C-Down>  <Esc><C-w>j
+" imap <C-j>  <Esc><C-w>j
+" imap <C-l>  <Esc><C-w>j
 
 " map <C-l> :source %<CR>
-map <C-l> :source ~/.config/nvim/init.vim<CR>
+map <C-y> :source ~/.config/nvim/init.vim<CR>
 map <Leader>m :bnext<CR>
 map <Leader>l :bprevious<CR>
 map <Leader>; i
@@ -143,6 +208,8 @@ imap <Leader>: <Esc>:vs term://zsh<CR>i<CR>
 map <C-s> :w<CR>
 map <C-q> :q<CR>
 map <S-q> :q!<CR>
+map <C-a-Q> :q!<CR>
+map <C-S-Q> :q!<CR>
 map <Leader>s :w! /home/mkovel/tmp//%:t<CR>
 imap <C-s> <Esc>:w<CR>
 imap <C-q> <Esc>:q<CR>
@@ -162,9 +229,16 @@ imap <Leader>s <Esc> :w! /home/mkovel/tmp//%:t<CR>
 nnoremap <C-f> :Telescope find_files cwd=/home/mkovel hidden=true<CR>
 " nnoremap <C-f> :NERDTreeFocus<CR>
 " nnoremap <C-d> :NERDTreeToggle<CR>
-nnoremap <C-d> :NERDTreeToggle <CR>
+map <C-d> :NERDTreeToggle <CR>
+map <Leader>d :NERDTreeToggle <CR>
+map <Leader>f :NERDTreeFocus <CR>
+" let NERDTreeMapJumpNextSibling='l'
+let NERDTreeMapJumpPrevSibling='o'
+" let NERDTreeMapOpenSplit='s'
+let NERDTreeMapActivateNode='m'
+let NERDTreeDirArrowsExpandable='l'
 colorscheme nord 
-
+" colorscheme dracula
 
 
 
@@ -174,10 +248,17 @@ autocmd InsertEnter,InsertLeave * set cul!
 set nowrap
 set showcmd
 
-noremap <S-h> b
-noremap <S-j> 5j
-noremap <S-k> 5k
-noremap <S-L> w
+" noremap <S-h> b
+noremap <C-k> b
+" noremap <S-j> 5j
+noremap <C-l> 5j
+" noremap <S-k> 5k
+" noremap <C-k> 5k
+noremap <C-m> w 
+" noremap <S-L> w
+" noremap <C-L> w
+noremap <C-o> 5k
+
 map <Leader>v :vs 
 map <Leader>h :sp 
 
@@ -220,8 +301,132 @@ imap <C-a> <Esc>:Commentary<CR>i
 map <C-a> :Commentary<CR>
 nmap <F1> :TagbarToggle<CR>
 
-nmap <C-h> :sp temp<CR> 
+" nmap <C-h> :sp temp<CR> 
 nmap <C-v> :vs N<CR> 
 " inoremap <C-a> <Esc> :Commentary<CR>
 " vnoremap <C-a> :Commentary<CR> 
 
+function CapitalPythonTemplate()
+    if expand('%:t') =~ '^[A-Z]'
+        call setline('.', 'class '.expand('%:t:r').'():')
+        call append(line('.'), '    def __init__(self')
+        normal G$
+    endif
+endfunction
+nmap <Leader>py :call CapitalPythonTemplate()<CR>
+
+function MainPythonTemplate()
+	call setline(1, '#!/usr/bin/env python3')
+	call setline(2, '')
+	call setline(3, 'def main():')
+	call setline(4, '	print("Hello World!")')
+	call setline(5, '')
+	call setline(6, 'if __name__ == "__main__":')
+	call setline(7, '	main()')
+	normal gg3l$
+endfunction
+
+function MainCTemplate()
+	call setline(1, '#include <stdio.h>')
+	call setline(2, '')
+	call setline(3, 'int main(int argc, char *argv[])')
+	call setline(4, '{')
+	call setline(5, '	printf("Hello World!");')
+	call setline(6, '	return 0;')
+	call setline(7, '}')
+	normal gg5l$
+endfunction
+
+function MainCPlusTemplate()
+	call setline(1, '#include <iostream>')
+	call setline(2, '')
+	call setline(3, 'int main(int argc, char *argv[])')
+	call setline(4, '{')
+	call setline(5, '	std::cout << "Hello World!" << std::endl;')
+	call setline(6, '	return 0;')
+	call setline(7, '}')
+	normal gg3l$
+endfunction
+
+function MainJavaTemplate()
+	call setline(1, 'public class '.expand('%:t:r').'{')
+	call setline(2, '	public static void main(String[] args) {')
+	call setline(3, '		System.out.println("Hello World!");')
+	call setline(4, '	}')
+	call setline(5, '}')
+	normal gg2l$
+endfunction
+
+function InitClassIfCapJava()
+	if expand('%:t') =~ '^[A-Z]'
+	    call setline(1, 'public class '.expand('%:t:r').'{')
+	    call setline(2, '	public '.expand('%:t:r').'(){')
+	    call setline(3, '		')
+	    call setline(4, '	}')
+	    call setline(5, '}')
+		normal gg2l$
+	endif
+endfunction
+
+function InitCpp()
+		let hppfile = expand('%:p:r').'.hpp'
+		if filereadable(hppfile)
+			let cmd = 'stubgen -qNlgn  ' . expand('%:p:r') . '.hpp'
+			call system(cmd)
+		endif
+endfunction
+
+function PreInitCpp()
+	call InitCpp()
+	edit %
+endfunction
+
+function GenerateCPP()
+	execute "w"
+	call InitCpp()
+	let cppfile = expand('%:t:r').".cpp"
+    execute "vs ".fnameescape(cppfile)
+endfunction
+
+map <Leader>c :call GenerateCPP()<CR>
+
+
+function InitClassIfCapHpp()
+    if expand('%:t') =~ '^[A-Z]'
+		call setline(1, '#pragma once')
+		" call setline(1, '#ifndef '.toupper(expand('%:t:r')).'_HPP')
+		" call setline(2, '#define '.toupper(expand('%:t:r')).'_HPP')
+		call setline(2, '')
+		call setline(3, '')
+		call setline(4, 'class '.expand('%:t:r').'{')
+		call setline(5, 'public:')
+		call setline(6, '	'.expand('%:t:r').'();')
+		call setline(7, '	~'.expand('%:t:r').'();')
+		call setline(8, '	')
+		call setline(9, '};')
+		call setline(10, '')
+		" call setline(11, '#endif')
+		normal gg8l$
+		call GenerateCPP()
+
+	endif
+endfunction
+
+
+
+augroup initLanguage
+    autocmd!
+	if !filereadable(expand("%:p"))
+		autocmd VimEnter *.py call CapitalPythonTemplate()
+		autocmd VimEnter main.py call MainPythonTemplate()
+		autocmd VimEnter main.c call MainCTemplate()
+		autocmd VimEnter main.cpp call MainCPlusTemplate()
+		autocmd VimEnter Main.java call MainJavaTemplate()
+		autocmd VimEnter main.java call MainJavaTemplate()
+		autocmd VimEnter *.hpp call InitClassIfCapHpp()
+		autocmd VimEnter *.java call InitClassIfCapJava()
+		autocmd VimEnter *.cpp call PreInitCpp()
+	" normal G$i
+	endif
+augroup END
+" autocmd FileType text normal! Gihello\n
